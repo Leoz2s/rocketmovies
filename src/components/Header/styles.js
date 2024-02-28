@@ -3,6 +3,7 @@ import {styled} from 'styled-components';
 export const Container = styled.header`
   display: flex;
   justify-content: space-around;
+  align-items: center;
 
   padding: 2.4rem 12.3rem;
 
@@ -12,8 +13,12 @@ export const Container = styled.header`
 
   margin-bottom: 5rem;
 
-  > h1 {
+  > a h1 {
     color: ${({theme}) => theme.COLORS.PINK_100};
+  }
+
+  > div:nth-child(2) {
+    width: 58.2rem;
   }
 `;
 

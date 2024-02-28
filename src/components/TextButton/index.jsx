@@ -1,10 +1,10 @@
 import {Container} from './styles';
 
-export function Tag({title, icon: Icon, isNew = ""}) {
+export function TextButton({icon: Icon, title}) {
   return(
     <Container>
-      {isNew ? "New tag" : title}
       {Icon && <Icon size={20} />}
+      {title}
     </Container>
   );
 };

@@ -5,8 +5,11 @@ import {Tag} from '../Tag';
 export function MovieCard({title, rating, description, tag}) {
   return(
     <Container>
-      <h3>{title}</h3>
-      <div className="rating-stars">{rating}</div>
+      <div className="title-rating">
+        <h3>{title}</h3>
+        <div className="rating-stars">{rating}</div>
+      </div>
+
       <p>{description}</p>
       
       <div className="tags">

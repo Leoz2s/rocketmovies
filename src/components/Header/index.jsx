@@ -6,7 +6,9 @@ import {Input} from '../Input';
 export function Header() {
   return(
     <Container>
-      <h1>Rocket Movies</h1>
+      <Link to="/">
+        <h1>Rocket Movies</h1>
+      </Link>
 
       <Input placeholder="Search for title" />
 
@@ -15,7 +17,6 @@ export function Header() {
           <Link to="/profile">Leonardo Santos</Link>
           <Link to="/">Leave</Link>
         </div>
-
 
         <img src="https://github.com/Leoz2s.png" alt="User picture" />
       </Profile>

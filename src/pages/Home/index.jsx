@@ -1,4 +1,5 @@
 import {Container} from './styles';
+import {Link} from 'react-router-dom';
 import {GrAdd} from 'react-icons/gr';
 
 import {Header} from '../../components/Header';
@@ -13,7 +14,9 @@ export function Home() {
       <main>
         <div id="section">
           <h2>My movies</h2>
-          <Button title="Add movie" icon={<GrAdd />} />
+    	    <Link to="/new-movie">
+            <Button title="Add movie" icon={<GrAdd />} />
+          </Link>
         </div>
 
         <div id="movies-cards">

@@ -4,43 +4,39 @@ export const Container = styled.div`
   header {
     background-color: ${({theme}) => theme.COLORS.PINK_900};
 
-    height: 15vw;
+    height: 14.4rem;
+
+    position: relative;
 
     > a {
-      color: ${({theme}) => theme.COLORS.PINK_100};
-
-      svg {
-        --icon-size: 4rem;
-        height: var(--icon-size);
-        width: var(--icon-size);
-      }
+      position: absolute;
+      top: 42%;
+      left: 25%;
     }
   }
 `;
 
-export const Form = styled.form`
-  margin: 0 auto;
-  
+export const Form = styled.form`  
   display: grid;
-  gap: 1rem;
   justify-content: center;
 
-  .user-picture {
+  > .user-picture {
     justify-self: center;
+    
+    margin-top: -9.5rem;
+    margin-bottom: 6.4rem;
     
     position: relative;
 
-    > img {
+    img {
       border-radius: 50%;
 
-      --image-size: 20rem;
+      --image-size: 18.6rem;
       height: var(--image-size);
       width: var(--image-size);
-
-      margin-top: -12rem;
     }
 
-    > div {
+    label {
       position: absolute;
       right: 1rem;
       bottom: 1rem;
@@ -49,11 +45,44 @@ export const Form = styled.form`
       padding: 1.4rem;
       border-radius: 50%;
       
+      cursor: pointer;
+
       svg {
-        --icon-size: 2.5rem;
-          height: var(--icon-size);
+        --icon-size: 2rem;
+          height: 1.6rem;
           width: var(--icon-size);
+
+          color: ${({theme}) => theme.COLORS.BACKGROUND_500};
       }
     }
+
+    input {
+      display: none;
+    }
   }
+
+  > .form-inputs {  
+    display: grid;
+    gap: .8rem;
+
+    div {
+      width: 34rem;
+
+      &::placeholder {
+        color: ${({theme}) => theme.COLORS.WHITE};
+      }
+    }
+
+    div:nth-child(1),  div:nth-child(2) {      
+      &:placeholder {
+        color: ${({theme}) => theme.COLORS.WHITE};
+      }
+    }
+
+    div:nth-child(2), div:nth-last-child(2) {
+      margin-bottom: 2.4rem;
+    }
+  }
+
+
 `;

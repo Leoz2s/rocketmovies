@@ -1,35 +1,42 @@
 import {Container, Form} from './styles';
 import { Link } from 'react-router-dom';
-import {GoArrowLeft} from 'react-icons/go';
+
+import {GoArrowLeft, GoMail} from 'react-icons/go';
 import { FaCamera } from "react-icons/fa6";
+import { FaRegUser } from "react-icons/fa";
+import { LuLock } from "react-icons/lu";
 
 import {Input} from '../../components/Input';
 import {Button} from '../../components/Button';
+import {TextButton}  from '../../components/TextButton';
 
 export function Profile() {
   return(
     <Container>
       <header>
-        <Link>
-          <GoArrowLeft/>
+        <Link to="/">
+          <TextButton title="Return" icon={GoArrowLeft} />
         </Link>
       </header>
 
       <Form>
         <div className="user-picture">
           <img src="https://github.com/Leoz2s.png" alt="User picture" />
-          <div className="camera-icon">
+          <label htmlFor='avatar'>
             <FaCamera />
-          </div>
+            <input type="file" id="avatar" />
+          </label>
         </div>
 
-        <Input value="Name" />
-        <Input value="mail@email.com"/>
+        <div className="form-inputs">
+          <Input placeholder="Name" type="text" icon={FaRegUser} />
+          <Input placeholder="example@email.com" type="email" icon={GoMail} />
 
-        <Input placeholder="Actual password"/>
-        <Input placeholder="New password" />
+          <Input placeholder="Actual password" type="password" icon={LuLock} />
+          <Input placeholder="New password" type="password" icon={LuLock} />
 
-        <Button title="Save" />
+          <Button title="Save" type="submit" />
+        </div>
       </Form>
     </Container>
   );

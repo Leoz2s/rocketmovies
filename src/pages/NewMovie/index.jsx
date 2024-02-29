@@ -20,8 +20,8 @@ export function NewMovie() {
         </div>
 
         <div className="inputs-group">
-          <Input placeholder="Title" />
-          <Input placeholder="Your rating (from 0 to 5)" />
+          <Input type="text" placeholder="Title" />
+          <Input type="number" placeholder="Your rating (from 0 to 5)" />
         </div>
 
         <Textarea placeholder="Observations" />

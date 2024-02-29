@@ -28,10 +28,6 @@ export const Form = styled.form`
     gap: 1rem;
 
     margin-bottom: 2.4rem;
-
-    svg {
-      color: ${({theme}) => theme.COLORS.GRAY_900};
-    }
   }
 
   button {

@@ -11,17 +11,23 @@ export const Container = styled(Link)`
   display: grid;
   gap: 1.5rem;
 
-  .title-rating div {
-    margin-top: .8rem;
+  .title-rating {
+    h3 {
+      font-size: 2.4rem;
+    }
 
-    color: ${({theme}) => theme.COLORS.PINK_100};
+    div {
+      margin-top: .8rem;
+    
+      color: ${({theme}) => theme.COLORS.PINK_100};
+    }
   }
 
   > p {
     color: ${({theme}) => theme.COLORS.GRAY_800};
   }
 
-  .tags {
+  .tags footer {
     display: flex;
     gap: 1rem;
   }

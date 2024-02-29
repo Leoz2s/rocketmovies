@@ -1,11 +1,7 @@
 import {styled} from 'styled-components';
 
 export const Container = styled.div`
-
   display: grid;
-  grid-template-areas:
-    'Header'
-    'Content';
 
   > main {
     margin: 0 auto;
@@ -13,6 +9,8 @@ export const Container = styled.div`
     display: grid;
     gap: 2rem;
 
+    height: 70vh;
+    scrollbar-color: ${({theme}) => theme.COLORS.PINK_100} ${({theme}) => theme.COLORS.BACKGROUND_800};
     
     #section {
       display: flex;
@@ -21,9 +19,10 @@ export const Container = styled.div`
     }
     
     #movies-cards {
-      display: grid;
-      gap: 1rem;
-      
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;  
+
       overflow-y: auto;
     }
   }

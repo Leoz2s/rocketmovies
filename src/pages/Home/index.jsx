@@ -20,12 +20,71 @@ export function Home() {
         </div>
 
         <div id="movies-cards">
-          <MovieCard to="/movie-details" title="Batman" rating="3" description="Batman Movie" tag="action" />
-          <MovieCard title="Spider-man" rating="4" description="Spider-man Movie" tag="adventure" />
-          <MovieCard title="Spider-man" rating="4" description="Spider-man Movie" tag="adventure" />
-          <MovieCard title="Spider-man" rating="4" description="Spider-man Movie" tag="adventure" />
-          <MovieCard title="Spider-man" rating="4" description="Spider-man Movie" tag="adventure" />
-          <MovieCard title="Spider-man" rating="4" description="Spider-man Movie" tag="adventure" />
+          <MovieCard to="/movie-details/1" 
+            data={{ title: "Batman", 
+              rating: 4, 
+              description: "Batman Movie",
+              tags: [
+                {id: '1', name: 'action'},
+                {id: '2', name: 'adventure'},
+                {id: '3', name: 'fantasy'},
+              ]
+            }} />
+
+          <MovieCard to="/movie-details/1" 
+          data={{ title: "Batman", 
+              rating: 3, 
+              description: "Batman Movie",
+              tags: [
+                {id: '1', name: 'action'},
+                {id: '2', name: 'adventure'},
+                {id: '3', name: 'fantasy'},
+              ]
+              }} />
+
+          <MovieCard to="/movie-details/1" 
+            data={{ title: "Batman", 
+              rating: 3, 
+              description: "Batman Movie",
+              tags: [
+                {id: '1', name: 'action'},
+                {id: '2', name: 'adventure'},
+                {id: '3', name: 'fantasy'},
+              ]
+              }} />
+
+          <MovieCard to="/movie-details/1" 
+            data={{ title: "Batman", 
+              rating: 3, 
+              description: "Batman Movie",
+              tags: [
+                {id: '1', name: 'action'},
+                {id: '2', name: 'adventure'},
+                {id: '3', name: 'fantasy'},
+              ]
+              }} />
+
+          <MovieCard to="/movie-details/1" 
+            data={{ title: "Batman", 
+              rating: 3, 
+              description: "Batman Movie",
+              tags: [
+                {id: '1', name: 'action'},
+                {id: '2', name: 'adventure'},
+                {id: '3', name: 'fantasy'},
+              ]
+              }} />
+
+          <MovieCard to="/movie-details/1" 
+            data={{ title: "Batman", 
+              rating: 3, 
+              description: "Batman Movie",
+              tags: [
+                {id: '1', name: 'action'},
+                {id: '2', name: 'adventure'},
+                {id: '3', name: 'fantasy'},
+              ]
+              }} />
         </div>
 
       </main>

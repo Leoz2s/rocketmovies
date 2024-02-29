@@ -11,6 +11,12 @@ export const Container = styled(Link)`
   display: grid;
   gap: 1.5rem;
 
+  .title-rating div {
+    margin-top: .8rem;
+
+    color: ${({theme}) => theme.COLORS.PINK_100};
+  }
+
   > p {
     color: ${({theme}) => theme.COLORS.GRAY_800};
   }

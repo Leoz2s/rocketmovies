@@ -1,13 +1,14 @@
 import {Container} from './styles';
 
 import {Tag} from '../Tag';
+import {RatingStars} from '../RatingStars';
 
 export function MovieCard({title, rating, description, tag, to}) {
   return(
     <Container to={to}>
       <div className="title-rating">
         <h3>{title}</h3>
-        <div className="rating-stars">{rating}</div>
+        <RatingStars rating={rating} />
       </div>
 
       <p>{description}</p>

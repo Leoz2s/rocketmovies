@@ -2,8 +2,10 @@ import {styled} from 'styled-components';
 
 export const Container = styled.div`
   > main {
+    max-width: 111.3rem;
+    margin: 0 auto;
+
     display: grid;
-    justify-content: center;
     gap: 4rem;
 
     .return-title h2 {
@@ -13,6 +15,10 @@ export const Container = styled.div`
     .inputs-group {
       display: flex;
       gap: 4rem;
+
+      input {
+        width: 50.5rem;
+      }
     }
 
     textarea {

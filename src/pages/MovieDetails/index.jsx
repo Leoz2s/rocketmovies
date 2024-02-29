@@ -17,7 +17,7 @@ export function MovieDetails() {
           <TextButton to="/" title="Return" icon={GoArrowLeft} />
           <div className="title-rating">
             <h2>Batman</h2>
-            <RatingStars rating="0" />
+            <RatingStars rating="3" />
           </div>
 
           <div className="user-date">

@@ -4,7 +4,7 @@ import {GoX, GoPlus} from 'react-icons/go';
 
 export function MovieTag({isNew, value, onClick, ...rest}) {
   return(
-    <Container $isnew={isNew} >
+    <Container $isNew={isNew} >
       <input 
         type="text"
         value={value}

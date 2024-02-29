@@ -25,6 +25,7 @@ export function Home() {
           <MovieCard title="Spider-man" rating="4" description="Spider-man Movie" tag="adventure" />
           <MovieCard title="Spider-man" rating="4" description="Spider-man Movie" tag="adventure" />
           <MovieCard title="Spider-man" rating="4" description="Spider-man Movie" tag="adventure" />
+          <MovieCard title="Spider-man" rating="4" description="Spider-man Movie" tag="adventure" />
         </div>
 
       </main>

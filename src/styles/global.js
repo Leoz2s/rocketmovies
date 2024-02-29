@@ -27,6 +27,10 @@ export default createGlobalStyle`
     border: none; 
   }
 
+  a {
+    color: ${({theme}) => theme.COLORS.WHITE_100};
+  }
+
   a, button {
     text-decoration: none;
     cursor: pointer;

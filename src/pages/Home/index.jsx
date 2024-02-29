@@ -20,7 +20,7 @@ export function Home() {
         </div>
 
         <div id="movies-cards">
-          <MovieCard title="Batman" rating="3" description="Batman Movie" tag="action" />
+          <MovieCard to="/movie-details" title="Batman" rating="3" description="Batman Movie" tag="action" />
           <MovieCard title="Spider-man" rating="4" description="Spider-man Movie" tag="adventure" />
           <MovieCard title="Spider-man" rating="4" description="Spider-man Movie" tag="adventure" />
           <MovieCard title="Spider-man" rating="4" description="Spider-man Movie" tag="adventure" />

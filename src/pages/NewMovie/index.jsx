@@ -1,12 +1,11 @@
 import {Container} from './styles';
-import {Link} from 'react-router-dom';
-import {GoArrowLeft, GoX, GoPlus} from 'react-icons/go';
+import {GoArrowLeft} from 'react-icons/go';
 
 import {Header} from '../../components/Header';
 import {TextButton} from '../../components/TextButton';
 import {Input} from '../../components/Input';
 import {Textarea} from '../../components/Textarea';
-import {Tag} from '../../components/Tag';
+import {MovieTag} from '../../components/MovieTag';
 import {Button} from '../../components/Button';
 
 export function NewMovie() {
@@ -16,9 +15,7 @@ export function NewMovie() {
 
       <main>
         <div className="return-title">
-          <Link to="/">
-            <TextButton title="Return" icon={GoArrowLeft} />
-          </Link>
+            <TextButton to="/" title="Return" icon={GoArrowLeft} />
           <h2>New movie</h2>
         </div>
 
@@ -32,8 +29,8 @@ export function NewMovie() {
         <div className="tags-section">
           <h3>Tags</h3>
           <div className="tags-group">
-            <Tag title="React" icon={GoX} />
-            <Tag isNew icon={GoPlus} />
+            <MovieTag value="React" />
+            <MovieTag isNew placeholder="New tag" />
           </div>
         </div>
 

@@ -14,9 +14,7 @@ export function Profile() {
   return(
     <Container>
       <header>
-        <Link to="/">
-          <TextButton title="Return" icon={GoArrowLeft} />
-        </Link>
+          <TextButton to="/" title="Return" icon={GoArrowLeft} />
       </header>
 
       <Form>

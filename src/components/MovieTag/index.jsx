@@ -1,10 +1,24 @@
 import {Container} from './styles';
 
-export function Tag({title, icon: Icon, isNew = ""}) {
+import {GoX, GoPlus} from 'react-icons/go';
+
+export function MovieTag({isNew, value, onClick, ...rest}) {
   return(
-    <Container>
-      {isNew ? "New tag" : title}
-      {Icon && <Icon size={20} />}
+    <Container $isnew={isNew} >
+      <input 
+        type="text"
+        value={value}
+        readOnly={!isNew}
+        {...rest}
+      />
+
+      <button
+        type="button"
+        onClick={onClick}
+        className={isNew ? 'button-add' : 'button-delete'}
+      >
+        {isNew ? <GoPlus/> : <GoX/>}
+      </button>
     </Container>
   );
 };

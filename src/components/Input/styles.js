@@ -14,6 +14,7 @@ export const Container = styled.div`
     cursor: text;
 
     input {
+      width: 100%;
       background: transparent;
       
       color: ${({theme}) => theme.COLORS.WHITE_100};

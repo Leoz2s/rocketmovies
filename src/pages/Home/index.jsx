@@ -1,12 +1,33 @@
-import {Container} from './styles';
-import {Link} from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { api } from '../../services/api';
+import {Link, useNavigate} from 'react-router-dom';
+
 import {GrAdd} from 'react-icons/gr';
 
+import {Container} from './styles';
 import {Header} from '../../components/Header';
 import { Button } from '../../components/Button';
 import { MovieCard } from '../../components/MovieCard';
 
 export function Home() {
+  const [movies, setMovies] = useState([]);
+  const [search, setSearch] = useState();
+
+  const navigate = useNavigate();
+
+  function handleDetails(id) {
+    navigate(`/movie-details/${id}`);
+    console.log(id)
+  };
+
+  useEffect(() => {
+    async function fetchMovies() {
+      const response = await api.get(`/movies?title=&tags=`);
+      setMovies(response.data);
+    };
+    fetchMovies();
+  }, []);
+
   return(
     <Container>
       <Header/>
@@ -20,18 +41,20 @@ export function Home() {
         </div>
 
         <div id="movies-cards">
-          <MovieCard to="/movie-details/1" 
-            data={{ title: "Batman", 
-              rating: 4, 
-              description: "Batman Movie",
-              tags: [
-                {id: '1', name: 'action'},
-                {id: '2', name: 'adventure'},
-                {id: '3', name: 'fantasy'},
-              ]
-            }} />
-
-          <MovieCard to="/movie-details/1" 
+          {
+            movies.map(movie => (
+              <MovieCard
+                key={String(movie.id)}
+                data={{ title: movie.title, 
+                  rating: movie.rating, 
+                  description: movie.description,
+                  tags: movie.tags,
+                }} 
+                onClick={() => handleDetails(movie.id)}
+              />
+            ))
+          }
+          {/* <MovieCard to="/movie-details/1" 
           data={{ title: "Batman", 
               rating: 3, 
               description: "Batman Movie",
@@ -40,53 +63,9 @@ export function Home() {
                 {id: '2', name: 'adventure'},
                 {id: '3', name: 'fantasy'},
               ]
-              }} />
-
-          <MovieCard to="/movie-details/1" 
-            data={{ title: "Batman", 
-              rating: 3, 
-              description: "Batman Movie",
-              tags: [
-                {id: '1', name: 'action'},
-                {id: '2', name: 'adventure'},
-                {id: '3', name: 'fantasy'},
-              ]
-              }} />
-
-          <MovieCard to="/movie-details/1" 
-            data={{ title: "Batman", 
-              rating: 3, 
-              description: "Batman Movie",
-              tags: [
-                {id: '1', name: 'action'},
-                {id: '2', name: 'adventure'},
-                {id: '3', name: 'fantasy'},
-              ]
-              }} />
-
-          <MovieCard to="/movie-details/1" 
-            data={{ title: "Batman", 
-              rating: 3, 
-              description: "Batman Movie",
-              tags: [
-                {id: '1', name: 'action'},
-                {id: '2', name: 'adventure'},
-                {id: '3', name: 'fantasy'},
-              ]
-              }} />
-
-          <MovieCard to="/movie-details/1" 
-            data={{ title: "Batman", 
-              rating: 3, 
-              description: "Batman Movie",
-              tags: [
-                {id: '1', name: 'action'},
-                {id: '2', name: 'adventure'},
-                {id: '3', name: 'fantasy'},
-              ]
-              }} />
+              }} 
+          /> */}
         </div>
-
       </main>
     </Container>
   );

@@ -9,7 +9,7 @@ export const Container = styled.div`
     display: grid;
     gap: 2rem;
 
-    height: 70vh;
+    height: fit-content;
     scrollbar-color: ${({theme}) => theme.COLORS.PINK_100} ${({theme}) => theme.COLORS.BACKGROUND_800};
     
     #section {
@@ -24,6 +24,8 @@ export const Container = styled.div`
       gap: 1rem;  
 
       overflow-y: auto;
+
+      height: 60.3rem;
     }
   }
 

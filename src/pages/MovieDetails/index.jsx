@@ -1,13 +1,30 @@
-import {Container} from './styles';
+import { useEffect, useState } from 'react';
+import { api } from '../../services/api';
+import { useAuth } from '../../hooks/auth';
+
 import {GoArrowLeft, GoClock} from 'react-icons/go';
 
+import {Container} from './styles';
 import {Header} from '../../components/Header';
 import {TextButton} from '../../components/TextButton';
 import {Tag} from '../../components/Tag';
 import {RatingStars} from '../../components/RatingStars';
 
-
 export function MovieDetails() {
+  const [movieData, setMovieData] = useState("");
+  const movie_id = 2;
+
+  const {user} = useAuth();
+
+  useEffect(() => {
+    async function fetchMovieData() {
+      const response = await api.get(`/movies/${movie_id}`);
+      setMovieData(response.data);
+      console.log(response.data)
+    };
+    fetchMovieData();
+  }, []);
+
   return(
     <Container>
       <Header />
@@ -16,26 +33,31 @@ export function MovieDetails() {
         <div className="section">
           <TextButton to="/" title="Return" icon={GoArrowLeft} />
           <div className="title-rating">
-            <h2>Batman</h2>
-            <RatingStars rating="3" />
+            <h2>{movieData.title}</h2>
+            <RatingStars rating={movieData.rating} />
           </div>
 
           <div className="user-date">
             <img src="https://github.com/Leoz2s.png" alt="User picture" />
-            <span>Por Leonardo Santos</span>
+            <span>By {user.name}</span>
             <GoClock />
-            <span>28/02/2024 às 22:05</span>
+            <span>
+              {/* 28/02/2024 às 22:05 */}
+              {movieData.created_at}
+            </span>
           </div>
         </div>
 
         <div className="tags-group">
-          <Tag title="action" />
-          <Tag title="adventure" />
-          <Tag title="fantasy" />
+          {
+            movieData.tags.map((tag, index) => (
+              <Tag key={index} title={tag.name} />
+            ))
+          }
         </div>
 
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores enim atque quisquam expedita quod architecto excepturi dolorem possimus dolor quo voluptatibus mollitia ullam deserunt totam inventore eum, amet natus ducimus!
+          {movieData.description}
         </p>
       </main>
     </Container>

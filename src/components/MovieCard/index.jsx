@@ -3,9 +3,9 @@ import {Container} from './styles';
 import {Tag} from '../Tag';
 import {RatingStars} from '../RatingStars';
 
-export function MovieCard({data, to}) {
+export function MovieCard({data, ...rest}) {
   return(
-    <Container to={to}>
+    <Container {...rest}>
       <div className="title-rating">
         <h3>{data.title}</h3>
         <RatingStars rating={data.rating} />

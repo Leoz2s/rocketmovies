@@ -1,7 +1,8 @@
 import {styled} from 'styled-components';
-import { Link } from 'react-router-dom';
 
-export const Container = styled(Link)`
+export const Container = styled.div`
+  cursor: pointer;
+
   background-color: ${({theme}) => theme.COLORS.PINK_900};
   padding: 3.2rem;
   border-radius: 1.6rem;

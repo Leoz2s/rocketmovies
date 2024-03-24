@@ -39,7 +39,6 @@ export function SignUp() {
 
   function handleReturn() {
     navigate(-1);
-    console.log("a");
   };
 
   return(
@@ -79,8 +78,7 @@ export function SignUp() {
         />
 
         <TextButton
-          to="/"
-          // onClick={handleReturn} 
+          onClick={handleReturn} 
           title="Return to Log-in" 
           icon={GoArrowLeft} 
         />

@@ -8,34 +8,37 @@ import {Container} from './styles';
 import {Header} from '../../components/Header';
 import { Button } from '../../components/Button';
 import { MovieCard } from '../../components/MovieCard';
+import { useAuth } from '../../hooks/auth';
 
 export function Home() {
+  const {search} = useAuth();
+  
   const [movies, setMovies] = useState([]);
-  const [search, setSearch] = useState();
-
+  
   const navigate = useNavigate();
-
+  
   function handleDetails(id) {
     navigate(`/movie-details/${id}`);
-    console.log(id)
   };
-
+  
   useEffect(() => {
     async function fetchMovies() {
-      const response = await api.get(`/movies?title=&tags=`);
+      const searchData = search ?? ""
+
+      const response = await api.get(`/movies?title=${searchData}&tags=`);
       setMovies(response.data);
     };
     fetchMovies();
-  }, []);
+  }, [search]);
 
   return(
     <Container>
-      <Header/>
+      <Header />
       
       <main>
         <div id="section">
           <h2>My movies</h2>
-    	    <Link to="/new-movie">
+          <Link to="/new-movie">
             <Button title="Add movie" icon={<GrAdd />} />
           </Link>
         </div>

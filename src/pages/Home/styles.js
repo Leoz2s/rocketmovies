@@ -5,13 +5,14 @@ export const Container = styled.div`
 
   > main {
     margin: 0 auto;
+    width: 107.5rem;
 
     display: grid;
     gap: 2rem;
 
     height: fit-content;
     scrollbar-color: ${({theme}) => theme.COLORS.PINK_100} ${({theme}) => theme.COLORS.BACKGROUND_800};
-    
+
     #section {
       display: flex;
       align-items: center;

@@ -2,7 +2,7 @@ import {styled} from 'styled-components';
 
 export const Container = styled.div`
   > main {
-    max-width: 111.3rem;
+    max-width: 114.6rem;
     margin: 0 auto;
 
     display: grid;
@@ -34,9 +34,11 @@ export const Container = styled.div`
       .tags-group {
         background-color: ${({theme}) => theme.COLORS.BACKGROUND_900};
         padding: 1.6rem;
+        width: 114.6rem;
         border-radius: .8rem;
 
         display: flex;
+        flex-wrap: wrap;
         gap: 2.4rem;
   
         div {

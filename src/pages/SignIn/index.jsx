@@ -1,5 +1,6 @@
 import { useAuth } from '../../hooks/auth';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import {GoMail} from 'react-icons/go';
 import {LuLock} from "react-icons/lu";
@@ -14,9 +15,14 @@ export function SignIn() {
   const [password, setPassword] = useState("");
 
   const {signIn} = useAuth();
+  const navigate = useNavigate();
 
   function handleSignIn() {
     signIn({email, password});
+  };
+
+  function handleSignUpRedirect() {
+    navigate("/register");
   };
 
   return(
@@ -46,7 +52,8 @@ export function SignIn() {
           title="Enter" 
           onClick={handleSignIn}
         />
-        <TextButton to="/register" title="Create account" />
+
+        <TextButton onClick={handleSignUpRedirect} title="Create account" />
       </Form>
 
       <Background />

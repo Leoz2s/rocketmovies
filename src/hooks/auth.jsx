@@ -5,6 +5,7 @@ const AuthContext = createContext({});
 
 function AuthProvider({children}) {
   const [data, setData] = useState({});
+  const [search, setSearch] = useState("");
 
   async function signIn({email, password}) {
     try{
@@ -16,7 +17,6 @@ function AuthProvider({children}) {
 
       api.defaults.headers.common[`Authorization`] = `Bearer ${token}`;
       setData({user});
-
     }catch(error) {
       if(error.response) {
         alert(error.response.data.message);
@@ -30,6 +30,7 @@ function AuthProvider({children}) {
     localStorage.removeItem("@rocketmovies:user");
     localStorage.removeItem("@rocketmovies:token");
 
+    api.defaults.headers.common[`Authorization`] = ``;
     setData({});
   };
 
@@ -44,6 +45,10 @@ function AuthProvider({children}) {
       alert("To see the changes you need to remake Login.");
     };
   };
+
+  function searchMovies(searchData) {
+    setSearch({searchData});
+  };
   
   useEffect(() => {
     const user = localStorage.getItem("@rocketmovies:user");
@@ -56,7 +61,11 @@ function AuthProvider({children}) {
   }, []);
 
   return(
-    <AuthContext.Provider value={{signIn, signOut, updateProfile, user: data.user}}>
+    <AuthContext.Provider value={{
+      signIn, signOut, updateProfile,
+      user: data.user, 
+      searchMovies, search: search.searchData
+    }}>
       {children}
     </AuthContext.Provider>
   );

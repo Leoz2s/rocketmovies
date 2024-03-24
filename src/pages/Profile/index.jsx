@@ -12,6 +12,7 @@ import {Container, Form} from './styles';
 import {TextButton}  from '../../components/TextButton';
 import {Input} from '../../components/Input';
 import {Button} from '../../components/Button';
+import { useNavigate } from 'react-router-dom';
 
 export function Profile() {
   const {user, updateProfile} = useAuth();
@@ -25,6 +26,12 @@ export function Profile() {
   const avatarURL = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
   const [avatar, setAvatar] = useState(avatarURL);
   const [avatarFile, setAvatarFile] = useState(null);
+
+  const navigate = useNavigate();
+
+  function handleReturn() {
+    navigate(-1);
+  };
 
   function handleAvatarChange(event) {
     const file = event.target.files[0];
@@ -52,6 +59,7 @@ export function Profile() {
       
       const response = await api.put("/users", {name, email, old_password: oldPassword, password: newPassword });
       const {user: updatedUser, changesMessage} = response.data;
+      
       updateProfile(updatedUser, newProfileAvatar);
   
       if(changesMessage.length === 3) {
@@ -133,7 +141,7 @@ export function Profile() {
   return(
     <Container>
       <header>
-          <TextButton to="/" title="Return" icon={GoArrowLeft} />
+          <TextButton onClick={handleReturn} title="Return" icon={GoArrowLeft} />
       </header>
 
       <Form>

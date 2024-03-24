@@ -6,7 +6,7 @@ export const Container = styled.div`
     margin: 0 auto;
 
     display: grid;
-    gap: 4rem;
+    gap: 2.5rem;
 
     .title-rating {
       display: flex;
